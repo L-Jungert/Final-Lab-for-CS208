@@ -224,3 +224,5 @@ setup_scripts/
   create_demo_table.sql     Creates DB + comments table + 12 seed rows
 docs/                       Original course setup docs
 ```
+
+Credit to claude.ai to help with composition of full stack code, as well as helping me write my READ.ME!
