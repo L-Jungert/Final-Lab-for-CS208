@@ -1,7 +1,54 @@
 doctype html
-html
+html(lang='en')
   head
-    title= title
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    meta(name='description', content='Downtown Donuts -- a cozy, family-owned donut & coffee shop serving downtown since 1992.')
+    title= title + ' · Downtown Donuts'
+    link(rel='preconnect', href='https://fonts.googleapis.com')
+    link(rel='preconnect', href='https://fonts.gstatic.com', crossorigin)
+    //- Google Fonts (see README credits). Swap for the official brand fonts when provided.
+    link(href='https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Nunito+Sans:wght@400;600;700&display=swap', rel='stylesheet')
     link(rel='stylesheet', href='/stylesheets/style.css')
   body
-    block content
+    a.skip-link(href='#main') Skip to content
+    header.site-header
+      .nav-wrap
+        a.brand(href='/')
+          span.brand-mark 🍩
+          span.brand-text Downtown Donuts
+        input#nav-toggle.nav-toggle(type='checkbox')
+        label.nav-burger(for='nav-toggle', aria-label='Toggle navigation menu')
+          span
+          span
+          span
+        nav.site-nav
+          a(href='/', class=(currentPath === '/' ? 'active' : '')) Home
+          a(href='/menu', class=(currentPath && currentPath.indexOf('/menu') === 0 ? 'active' : '')) Menu
+          a(href='/about', class=(currentPath && currentPath.indexOf('/about') === 0 ? 'active' : '')) About
+          a(href='/comments', class=(currentPath && currentPath.indexOf('/comments') === 0 ? 'active' : '')) Comments
+          a.nav-cta(href='/menu#order') Order Online
+
+    main#main
+      block content
+
+    footer.site-footer
+      .footer-grid
+        .footer-col
+          a.brand.brand--footer(href='/')
+            span.brand-mark 🍩
+            span.brand-text Downtown Donuts
+          p.muted Family-owned since 1992. Fried fresh every morning.
+        .footer-col
+          h4 Visit
+          p.muted 123 Main Street
+            br
+            | Downtown · Open daily 6am–2pm
+        .footer-col
+          h4 Order
+          p
+            a(href='https://www.ubereats.com') UberEats
+          p
+            a(href='https://www.doordash.com') DoorDash
+      .footer-bottom
+        p.muted © #{year} Downtown Donuts. Prototype site — content is placeholder.

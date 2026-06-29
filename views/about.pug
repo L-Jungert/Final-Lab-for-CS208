@@ -1,0 +1,31 @@
+extends layout
+
+block content
+  section.page-head
+    .container
+      span.eyebrow Since 1992
+      h1 Our Story
+      p.muted A little shop, a lot of love, and a whole lot of donuts.
+
+  section.section
+    .container.about-intro
+      p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+      p.muted Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+  section.section.band
+    .container
+      .section-head
+        span.eyebrow Three decades downtown
+        h2 How we got here
+      .timeline
+        each t in timeline
+          .timeline-item
+            .timeline-year= t.year
+            .timeline-body
+              p.muted= t.text
+
+  section.section
+    .container.cta-final
+      h2 Come say hi
+      p.muted 123 Main Street, Downtown · Open daily 6am–2pm
+      a.btn.btn-primary(href='/menu') See what's cooking

@@ -1,23 +1,59 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
-  ol
-  each val in todos
-    li
-      span= val.task + ' - '
-      if val.completed > 0
-        span Completed
-      else
-        span Not Completed
-      form(method='POST' action='/delete')
-        input(type='hidden', name='id', value=val.id)
-        button(type='submit') Delete
+  section.hero
+    .hero-inner
+      span.eyebrow Serving downtown since 1992
+      h1.hero-title A warm dozen,
+        br
+        | made the old-fashioned way.
+      p.hero-sub Cozy, family-owned, and fried fresh every morning. Stop in for a classic glazed and a cup of our 18-hour cold brew.
+      .hero-actions
+        a.btn.btn-primary(href='/menu') See the Menu
+        a.btn.btn-ghost(href='/menu#order') Order Online
+    .hero-art(aria-hidden='true')
+      .donut-stack
+        span.d.d1 🍩
+        span.d.d2 🍩
+        span.d.d3 🍩
 
-  hr
-  h2 Add a new task
-  form(method='POST' action='/create')
-    label(for='task') Task:
-    input(type='text', name='task', id='task', required)
-    button(type='submit') Create Task
+  section.section
+    .container
+      .section-head
+        span.eyebrow This week's favorites
+        h2 Fresh out of the fryer
+      .card-grid
+        each item in featured
+          article.card
+            .card-emoji(aria-hidden='true')= item.emoji
+            h3= item.name
+            p.muted= item.desc
+            .card-foot
+              span.price= item.price
+              a.link(href='/menu') Order →
+
+  section.section.band
+    .container.band-inner
+      .band-text
+        span.eyebrow Our story
+        h2 More than a donut shop
+        p.muted Lorem ipsum dolor sit amet, consectetur adipiscing elit. For three decades the Doe family has fried, glazed, and served downtown one warm dozen at a time.
+        a.btn.btn-primary(href='/about') Read our story
+      .band-stats
+        .stat
+          strong 30+
+          span Years downtown
+        .stat
+          strong 1M+
+          span Donuts fried
+        .stat
+          strong 5am
+          span Fresh daily
+
+  section.section
+    .container.cta-final
+      h2 Hungry yet?
+      p.muted Skip the line — order ahead through our delivery partners.
+      .hero-actions.center
+        a.btn.btn-primary(href='https://www.ubereats.com') UberEats
+        a.btn.btn-ghost(href='https://www.doordash.com') DoorDash

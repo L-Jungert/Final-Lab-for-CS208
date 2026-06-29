@@ -1,6 +1,11 @@
 extends layout
 
 block content
-  h1= message
-  h2= error.status
-  pre #{error.stack}
+  section.page-head
+    .container.cta-final
+      span.eyebrow= error && error.status ? error.status : 'Oops'
+      h1 This donut rolled away
+      p.muted= message || "We couldn't find that page."
+      a.btn.btn-primary(href='/') Back home
+      if error && error.stack && error.status !== 404
+        pre.error-stack= error.stack

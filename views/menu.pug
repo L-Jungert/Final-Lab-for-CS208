@@ -1,0 +1,31 @@
+extends layout
+
+block content
+  section.page-head
+    .container
+      span.eyebrow Fried fresh daily
+      h1 Our Menu
+      p.muted Placeholder items below — the final menu comes straight from your PDF.
+
+  section.section
+    .container
+      each items, category in menu
+        .menu-block
+          h2.menu-cat= category
+          .menu-list
+            each item in items
+              .menu-row
+                .menu-row-main
+                  span.menu-name= item.name
+                  span.dots(aria-hidden='true')
+                  span.menu-price= item.price
+                p.menu-desc.muted= item.desc
+
+  section#order.section.band
+    .container.cta-final
+      span.eyebrow Order online
+      h2 Get it delivered
+      p.muted Tap a partner below to start your order.
+      .order-links
+        each o in ordering
+          a.btn.btn-primary(href=o.url, target='_blank', rel='noopener')= o.label
