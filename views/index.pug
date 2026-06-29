@@ -3,6 +3,7 @@ extends layout
 block content
   section.hero
     .hero-inner
+      img.hero-logo(src='/images/logo-green.png', alt='Downtown Donuts logo, established 1992')
       span.eyebrow Serving downtown since 1992
       h1.hero-title A warm dozen,
         br
@@ -11,11 +12,6 @@ block content
       .hero-actions
         a.btn.btn-primary(href='/menu') See the Menu
         a.btn.btn-ghost(href='/menu#order') Order Online
-    .hero-art(aria-hidden='true')
-      .donut-stack
-        span.d.d1 🍩
-        span.d.d2 🍩
-        span.d.d3 🍩
 
   section.section
     .container
@@ -25,7 +21,6 @@ block content
       .card-grid
         each item in featured
           article.card
-            .card-emoji(aria-hidden='true')= item.emoji
             h3= item.name
             p.muted= item.desc
             .card-foot
