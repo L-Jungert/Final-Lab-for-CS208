@@ -223,7 +223,4 @@ setup_scripts/
   install_db.sh             Installs MariaDB
   create_demo_table.sql     Creates DB + comments table + 12 seed rows
 docs/                       Original course setup docs
-CITATIONS.md                External resources used
 ```
-
-See **CITATIONS.md** for all external resources used.
