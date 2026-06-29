@@ -3,32 +3,45 @@
    Cozy, minimal, modern. Mobile-first.
 
    >>> BRAND TOKENS <<<
-   All colors/fonts live in :root below. When the official Brand
-   Guidelines are provided, swap these few values and the whole
-   site re-themes. (Placeholder palette chosen to read warm,
-   cozy, and bakery-appropriate until then.)
+   Palette and fonts taken directly from the Downtown Donuts
+   Style Guide:
+     Dark Green  #10291D  - dark backgrounds / sections
+     Saffron     #F7C64A  - dividers, decorative elements, accents
+     Seasalt     #F7F7F7  - backgrounds, text on colored backgrounds
+     Cool Gray   #7E809A  - tertiary details, used sparingly
+   Fonts: Italianno (logo / "Downtown Donuts" only), Montserrat (everything else).
+   Rule from guide: black text on seasalt; seasalt text on color; no black backgrounds.
    ============================================================ */
 
 :root {
-  /* --- Brand palette (PLACEHOLDER -- replace from Brand Guidelines) --- */
-  --color-cream:    #FBF3E7;  /* page background */
-  --color-cocoa:    #4A2E22;  /* primary text / dark brown */
-  --color-pink:     #E8A1A8;  /* accent: strawberry frosting */
-  --color-pink-deep:#D97D86;
-  --color-caramel:  #C98A4B;  /* accent: caramel / maple */
-  --color-cream-2:  #FFFCF7;  /* card surface */
-  --color-line:     #EADBC8;  /* hairlines / borders */
-  --color-muted:    #7A6A5E;  /* secondary text */
+  /* --- Brand palette (official) --- */
+  --color-green:    #10291D;  /* dark green: dark sections, primary text */
+  --color-green-2:  #19402E;  /* slightly lifted green for hovers on dark */
+  --color-saffron:  #F7C64A;  /* saffron: accents, dividers, decorative */
+  --color-saffron-d:#E0A92E;  /* deeper saffron for hover on light */
+  --color-seasalt:  #F7F7F7;  /* seasalt: page background, text on color */
+  --color-gray:     #7E809A;  /* cool gray: tertiary details */
+
+  /* Semantic aliases kept so the rest of the sheet needs no edits */
+  --color-cream:    #F7F7F7;  /* page background (seasalt) */
+  --color-cocoa:    #10291D;  /* primary text (dark green) */
+  --color-pink:     #F7C64A;  /* accent (saffron) */
+  --color-pink-deep:#10291D;  /* primary action color (dark green; readable) */
+  --color-caramel:  #B98A12;  /* darker saffron for price text on light (contrast) */
+  --color-cream-2:  #FFFFFF;  /* card surface (clean white on seasalt) */
+  --color-line:     #E4E2DA;  /* hairlines / borders */
+  --color-muted:    #5A5C52;  /* secondary text (dark enough on seasalt) */
 
   /* --- Typography --- */
-  --font-display: 'Fraunces', Georgia, 'Times New Roman', serif;
-  --font-body:    'Nunito Sans', system-ui, -apple-system, Segoe UI, sans-serif;
+  --font-logo:    'Italianno', 'Brush Script MT', cursive;        /* logo / "Downtown Donuts" only */
+  --font-display: 'Montserrat', system-ui, -apple-system, sans-serif; /* headings */
+  --font-body:    'Montserrat', system-ui, -apple-system, sans-serif; /* body */
 
   /* --- Shape / spacing --- */
   --radius:   18px;
   --radius-sm:12px;
-  --shadow:   0 10px 30px rgba(74, 46, 34, 0.08);
-  --shadow-sm:0 4px 14px rgba(74, 46, 34, 0.07);
+  --shadow:   0 10px 30px rgba(16, 41, 29, 0.10);
+  --shadow-sm:0 4px 14px rgba(16, 41, 29, 0.08);
   --maxw:     1080px;
 }
 
@@ -68,7 +81,7 @@ p  { margin: 0 0 1rem; }
   font-size: 0.78rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--color-pink-deep);
+  color: var(--color-caramel);
   margin-bottom: 0.6rem;
 }
 
@@ -92,17 +105,17 @@ p  { margin: 0 0 1rem; }
   font-size: 1rem;
 }
 .btn:hover { text-decoration: none; transform: translateY(-2px); }
-.btn-primary { background: var(--color-pink-deep); color: #fff; box-shadow: var(--shadow-sm); }
-.btn-primary:hover { background: #c96b75; }
+.btn-primary { background: var(--color-green); color: var(--color-seasalt); box-shadow: var(--shadow-sm); }
+.btn-primary:hover { background: var(--color-green-2); }
 .btn-ghost { background: transparent; color: var(--color-cocoa); border-color: var(--color-cocoa); }
 .btn-ghost:hover { background: var(--color-cocoa); color: var(--color-cream); }
 
 /* ---------- Header / Nav ---------- */
 .site-header {
   position: sticky; top: 0; z-index: 50;
-  background: rgba(251, 243, 231, 0.9);
+  background: rgba(247, 247, 247, 0.92);
   backdrop-filter: blur(8px);
-  border-bottom: 1px solid var(--color-line);
+  border-bottom: 2px solid var(--color-saffron);
 }
 .nav-wrap {
   max-width: var(--maxw); margin: 0 auto; padding: 0.7rem 1.25rem;
@@ -111,8 +124,7 @@ p  { margin: 0 0 1rem; }
 }
 .brand { display: inline-flex; align-items: center; gap: 0.5rem; color: var(--color-cocoa); }
 .brand:hover { text-decoration: none; }
-.brand-mark { font-size: 1.5rem; }
-.brand-text { font-family: var(--font-display); font-weight: 700; font-size: 1.25rem; }
+.brand-text { font-family: var(--font-logo); font-weight: 400; font-size: 2rem; line-height: 1; }
 
 .site-nav { display: flex; align-items: center; gap: 0.4rem; }
 .site-nav a {
@@ -121,7 +133,7 @@ p  { margin: 0 0 1rem; }
 .site-nav a:hover { text-decoration: none; background: var(--color-line); }
 .site-nav a.active { color: var(--color-pink-deep); }
 .site-nav a.nav-cta { background: var(--color-cocoa); color: var(--color-cream); }
-.site-nav a.nav-cta:hover { background: #3a241b; }
+.site-nav a.nav-cta:hover { background: var(--color-green-2); }
 
 /* Mobile burger (hidden on desktop) */
 .nav-toggle { display: none; }
@@ -139,19 +151,27 @@ p  { margin: 0 0 1rem; }
 .hero-actions { display: flex; gap: 0.8rem; flex-wrap: wrap; margin-top: 1.2rem; }
 .hero-actions.center { justify-content: center; }
 
-.hero-art { display: flex; justify-content: center; }
-.donut-stack { position: relative; width: 220px; height: 220px; }
-.donut-stack .d { position: absolute; font-size: 7rem; filter: drop-shadow(0 12px 18px rgba(74,46,34,0.18)); }
-.donut-stack .d1 { top: 0; left: 10px; transform: rotate(-8deg); animation: float 4s ease-in-out infinite; }
-.donut-stack .d2 { top: 40px; left: 60px; transform: rotate(10deg); animation: float 4s ease-in-out infinite 0.6s; }
-.donut-stack .d3 { top: 90px; left: 25px; transform: rotate(-3deg); animation: float 4s ease-in-out infinite 1.2s; }
-@keyframes float { 0%,100% { translate: 0 0; } 50% { translate: 0 -12px; } }
-@media (prefers-reduced-motion: reduce) { .donut-stack .d { animation: none; } }
 
 /* ---------- Sections ---------- */
 .section { padding: 3rem 0; }
 .section-head { text-align: center; margin-bottom: 2rem; }
-.band { background: var(--color-cream-2); border-top: 1px solid var(--color-line); border-bottom: 1px solid var(--color-line); }
+.band { background: var(--color-green); border-top: 1px solid var(--color-green); border-bottom: 1px solid var(--color-green); }
+/* On dark-green bands, text becomes seasalt and accents become saffron (per Style Guide). */
+.band h1, .band h2, .band h3, .band h4 { color: var(--color-seasalt); }
+.band .muted { color: #C9CCC2; }
+.band .eyebrow { color: var(--color-saffron); }
+.band .stat { background: var(--color-green-2); border-color: var(--color-green-2); }
+.band .stat strong { color: var(--color-saffron); }
+.band .stat span { color: #C9CCC2; }
+.band .menu-cat { color: var(--color-saffron); border-bottom-color: rgba(247,198,74,0.35); }
+.band .timeline-item { border-left-color: var(--color-saffron); }
+.band .timeline-year { color: var(--color-saffron); }
+/* Ghost button on dark bands: saffron outline, readable */
+.band .btn-ghost { color: var(--color-seasalt); border-color: var(--color-saffron); }
+.band .btn-ghost:hover { background: var(--color-saffron); color: var(--color-green); }
+/* Primary button on dark bands: saffron fill with green text for contrast */
+.band .btn-primary { background: var(--color-saffron); color: var(--color-green); }
+.band .btn-primary:hover { background: var(--color-saffron-d); }
 
 /* ---------- Featured cards ---------- */
 .card-grid { display: grid; grid-template-columns: 1fr; gap: 1.2rem; }
@@ -161,7 +181,6 @@ p  { margin: 0 0 1rem; }
   transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 .card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
-.card-emoji { font-size: 2.6rem; margin-bottom: 0.4rem; }
 .card-foot { display: flex; align-items: center; justify-content: space-between; margin-top: 1rem; }
 .price { font-family: var(--font-display); font-weight: 700; font-size: 1.2rem; color: var(--color-caramel); }
 .link { font-weight: 700; }
@@ -271,9 +290,37 @@ p  { margin: 0 0 1rem; }
 }
 
 @media (min-width: 721px) {
-  .hero { grid-template-columns: 1.1fr 0.9fr; padding-top: 4rem; padding-bottom: 3rem; }
+  .hero { grid-template-columns: 1fr; padding-top: 4rem; padding-bottom: 3rem; max-width: 760px; }
   .card-grid { grid-template-columns: repeat(3, 1fr); }
   .band-inner { grid-template-columns: 1.2fr 1fr; }
   .comments-layout { grid-template-columns: 0.9fr 1.1fr; align-items: start; }
   .footer-grid { grid-template-columns: 2fr 1fr 1fr; }
 }
+
+/* ---------- Comments: hints, counter, pagination ---------- */
+.field-hint { font-size: 0.78rem; color: var(--color-muted); margin-top: -0.2rem; }
+.btn:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+
+.pagination {
+  display: flex; align-items: center; justify-content: space-between; gap: 0.8rem;
+  margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid var(--color-line);
+}
+.page-link {
+  font-weight: 700; padding: 0.5rem 0.9rem; border-radius: 999px;
+  border: 1px solid var(--color-line); color: var(--color-cocoa); background: var(--color-cream-2);
+}
+.page-link:hover { text-decoration: none; background: var(--color-line); }
+.page-link.disabled { opacity: 0.4; pointer-events: none; }
+.page-status { font-size: 0.9rem; color: var(--color-muted); font-weight: 600; }
+
+/* Keyboard focus visibility (accessibility) */
+a:focus-visible, button:focus-visible, input:focus-visible,
+select:focus-visible, textarea:focus-visible, .page-link:focus-visible {
+  outline: 3px solid var(--color-pink-deep); outline-offset: 2px;
+}
+
+/* ---------- Logo images ---------- */
+.hero-logo { width: 260px; max-width: 70%; height: auto; margin: 0 auto 1.2rem; }
+.footer-logo { width: 200px; max-width: 100%; height: auto; margin-bottom: 0.8rem; }
+.brand--footer { display: inline-block; }
+.brand--footer:hover { text-decoration: none; }
