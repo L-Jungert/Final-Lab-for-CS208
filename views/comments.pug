@@ -14,7 +14,7 @@ block content
         if error
           p.alert.alert-error= error
         if success
-          p.alert.alert-success Thanks! Your comment was posted. 🍩
+          p.alert.alert-success Thanks! Your comment was posted.
         form.comment-form(method='POST', action='/comments/create')
           label(for='name') Name
           input#name(type='text', name='name', maxlength='60', required, placeholder='Your name')
