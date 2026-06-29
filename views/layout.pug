@@ -7,15 +7,14 @@ html(lang='en')
     title= title + ' · Downtown Donuts'
     link(rel='preconnect', href='https://fonts.googleapis.com')
     link(rel='preconnect', href='https://fonts.gstatic.com', crossorigin)
-    //- Google Fonts (see README credits). Swap for the official brand fonts when provided.
-    link(href='https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Nunito+Sans:wght@400;600;700&display=swap', rel='stylesheet')
+    //- Brand fonts per the Downtown Donuts Style Guide: Italianno (logo/decorative headings) + Montserrat (headers + body).
+    link(href='https://fonts.googleapis.com/css2?family=Italianno&family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap', rel='stylesheet')
     link(rel='stylesheet', href='/stylesheets/style.css')
   body
     a.skip-link(href='#main') Skip to content
     header.site-header
       .nav-wrap
         a.brand(href='/')
-          span.brand-mark 🍩
           span.brand-text Downtown Donuts
         input#nav-toggle.nav-toggle(type='checkbox')
         label.nav-burger(for='nav-toggle', aria-label='Toggle navigation menu')
@@ -35,9 +34,8 @@ html(lang='en')
     footer.site-footer
       .footer-grid
         .footer-col
-          a.brand.brand--footer(href='/')
-            span.brand-mark 🍩
-            span.brand-text Downtown Donuts
+          a.brand--footer(href='/')
+            img.footer-logo(src='/images/logo-saffron.png', alt='Downtown Donuts logo, established 1992')
           p.muted Family-owned since 1992. Fried fresh every morning.
         .footer-col
           h4 Visit
